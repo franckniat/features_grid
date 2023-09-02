@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,900;1,100;1,200;1,300;1,400;1,500;1,800;1,900&display=swap" rel="stylesheet">
     <title>Features</title>
     <style>
@@ -72,24 +73,24 @@
     </style>
 </head>
 <body>
-    <section class="container">
+    <section class="container swiper">
         <h2>Nos engagements et certifications</h2>
-        <section class="features">
-            <section class="item">
+        <section class="features swipper-wrapper">
+            <section class="item swiper-slide">
                 <img src="https://viscosoft.imgix.net/shopify/vs-fr/Icon/icon+fr+mello/FABR-FRANCE.png?auto=compress,format" alt="">
                 <h3>Matelas fabriqué en France</h3>
                 <h4>
                     Le meilleur du <span>savoir-faire français</span> pour un confort incomparable et haut de gamme.
                 </h4>
             </section>
-            <section class="item">
+            <section class="item swiper-slide">
                 <img src="https://viscosoft.imgix.net/shopify/vs-fr/Icon/icon+fr+mello/LABEL-OEKO.png?auto=compress,format" alt="">
                 <h3>Matelas OEKO-TEX</h3>
                 <h4>
                     Mousses <span>labellisées OEKO-TEX</span>, sans produits chimiques nocifs pour la santé et l'environnement.
                 </h4>
             </section>
-            <section class="item">
+            <section class="item swiper-slide">
                 <img src="https://viscosoft.imgix.net/shopify/vs-fr/Icon/icon+fr+mello/QUALITE-ARTISAN.png?auto=compress,format" alt="">
                 <h3>Matelas éco-responsable</h3>
                 <h4>
@@ -98,5 +99,28 @@
             </section>
         </section>
     </section>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        new ResizeObserver(entries =>{
+            if(entries[0].contentRect.width <= 600){
+                const swiper = new Swiper('.swiper', {
+                    direction: 'horizontal',
+                    autoplay: {
+                        delay: 3000,
+                    },
+                    loop: true,
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    pagination: {
+                        el: '.swiper-pagination',
+                    }
+                })
+            } 
+            else{
+                return false;
+            }
+        }).observe(document.body)
+    </script>
 </body>
 </html>
