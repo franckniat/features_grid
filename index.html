@@ -1,126 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,900;1,100;1,200;1,300;1,400;1,500;1,800;1,900&display=swap" rel="stylesheet">
-    <title>Features</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        .container{
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .swiper h1{
+        font-size: 25px;
+        font-weight: normal;
+    }
+
+    .swiper .swiper-wrapper{
+        padding: 50px 0;
+        width: auto;
+    }
+
+    .swiper-slide {
+      font-size: 18px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .swiper-slide h2{
+        font-size: 18px;
+        font-weight: normal;
+    }
+
+    .swiper-slide h3 {
+        margin-top: 15px;
+        margin-left: 15px;
+        font-size: 16px;
+        font-weight: 300;
+        color: #444;
+    }
+
+    .swiper-slide h3 span{
+        font-weight: 600;
+    }
+
+    .swiper-pagination .swiper-pagination-bullet{
+        margin: 0 7px !important;
+    }
+    @media screen and (max-width: 500px) {
+        .swiper {
+            padding: 10px;
             text-align: center;
-            padding: 20px 15px;
-        }
-        .container h2{
-            font-weight: normal;
-            font-size: 16px;
-            text-transform:uppercase;
-            letter-spacing: 2px;
-            color: #003262;
-        }
-        .container .features{
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .container .features .item{
             display: flex;
-            align-items: center;
-            flex-direction: column;
-            font-size: 1rem;
-            gap: 25px;
-        }
-        .container .features .item h3{
-           font-weight: normal; 
-           color: #003262;
-        }
-        .container .features .item h4{
-           font-weight: normal; 
-           font-size: 18px;
-        }
+            align-items: flex-start;
+        }  
+    }
 
-        .container .features .item h4 span{
-            font-weight: 700;
-        }
-
-        @media screen and (max-width:1007px) {
-            .container .features{
-                display: grid;
-                grid-template-columns: 1fr;
-                justify-content: center;
-                margin-top: 20px;;
-            }
-            .container .features .item{
-                display: flex;
-                align-items: center;
-                flex-direction: column;
-                font-size: 1rem;
-                gap: 25px;
-                margin: 15px auto;
-                width: clamp(0px,50ch,100%);
-                align-self: self-start;
-            }
-        }
-    </style>
+  </style>
 </head>
+
 <body>
-    <section class="container swiper">
-        <h2>Nos engagements et certifications</h2>
-        <section class="features swipper-wrapper">
-            <section class="item swiper-slide">
-                <img src="https://viscosoft.imgix.net/shopify/vs-fr/Icon/icon+fr+mello/FABR-FRANCE.png?auto=compress,format" alt="">
-                <h3>Matelas fabriqué en France</h3>
-                <h4>
-                    Le meilleur du <span>savoir-faire français</span> pour un confort incomparable et haut de gamme.
-                </h4>
-            </section>
-            <section class="item swiper-slide">
-                <img src="https://viscosoft.imgix.net/shopify/vs-fr/Icon/icon+fr+mello/LABEL-OEKO.png?auto=compress,format" alt="">
-                <h3>Matelas OEKO-TEX</h3>
-                <h4>
-                    Mousses <span>labellisées OEKO-TEX</span>, sans produits chimiques nocifs pour la santé et l'environnement.
-                </h4>
-            </section>
-            <section class="item swiper-slide">
-                <img src="https://viscosoft.imgix.net/shopify/vs-fr/Icon/icon+fr+mello/QUALITE-ARTISAN.png?auto=compress,format" alt="">
-                <h3>Matelas éco-responsable</h3>
-                <h4>
-                    Matelas fabriqué avec des <span>matériaux durables</span>, en favorisant les <span>circuits courts</span> et acteurs locaux.
-                </h4>
-            </section>
-        </section>
-    </section>
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script>
-        new ResizeObserver(entries =>{
-            if(entries[0].contentRect.width <= 600){
-                const swiper = new Swiper('.swiper', {
-                    direction: 'horizontal',
-                    autoplay: {
-                        delay: 3000,
-                    },
-                    loop: true,
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    pagination: {
-                        el: '.swiper-pagination',
-                    }
-                })
-            } 
-            else{
-                return false;
-            }
-        }).observe(document.body)
-    </script>
+
+  <!-- Swiper -->
+  <div class="swiper">
+    <h1>Nos engagements et certifications</h1>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+            <img src="https://viscosoft.imgix.net/shopify/vs-fr/Icon/icon+fr+mello/FABR-FRANCE.png?auto=compress,format" alt="Slide 1">
+            <h2>Matelas fabriqué en France</h2>
+            <h3>
+                Le meilleur du <span>savoir-faire français</span> pour un confort incomparable et haut de gamme.
+            </h3>
+      </div>
+      <div class="swiper-slide">
+            <img src="https://viscosoft.imgix.net/shopify/vs-fr/Icon/icon+fr+mello/LABEL-OEKO.png?auto=compress,format" alt="Slide 2">
+            <h2>Matelas OKEO-TEX</h2>
+            <h3> 
+                Mousses <span>labellisées OEKO-TEX</span>, sans produits chimiques nocifs pour la santé et l'environnement.
+            </h3>
+      </div>
+      <div class="swiper-slide">
+            <img src="https://viscosoft.imgix.net/shopify/vs-fr/Icon/icon+fr+mello/QUALITE-ARTISAN.png?auto=compress,format" alt="Slide 3">
+            <h2>Matelas éco-responsable</h2>
+            <h3>
+                Matelas fabriqué avec des <span>matériaux durables</span>, en favorisant les <span>circuits courts</span> et acteurs locaux.
+            </h3>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper', {
+        loop:true,
+        keyboard:{
+            enabled: true,
+        },
+        slidesPerView: 'auto',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        direction: 'horizontal',
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+            850: { slidesPerView: 'auto', spaceBetween: 10 },
+        },
+    });
+  </script>
 </body>
+
 </html>
